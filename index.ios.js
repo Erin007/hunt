@@ -1,4 +1,4 @@
-
+//index.ios.js
 
 import React, { Component } from 'react';
 import {
@@ -7,15 +7,17 @@ import {
   Text,
   View
 } from 'react-native';
-import axios from 'axios';
+import DirectiveList from './src/components/DirectiveList'
 
 export default class hunt extends Component {
   render() {
+    console.log('rendering something...')
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
            Scavenger Hunt Capstone!
         </Text>
+        <DirectiveList/>
       </View>
     );
   }
