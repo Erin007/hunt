@@ -13,9 +13,10 @@ class DirectiveList extends Component {
     componentWillMount (){
       //console.log('component will mount in directive list')
       //console.log('this.state.directives', this.state.directives)
-      axios.get('https://treasure-chest-api.herokuapp.com/').then( response => this.setState( { directives: response.data.directives })) .catch(function (error) {
-    console.log(error);
-    });;
+      axios.get('https://treasure-chest-api.herokuapp.com/').then( response => this.setState( { directives: response.data.directives }))
+        .catch(function (error) {
+          console.log(error);
+        });;
     }
 
     renderDirectives() {
