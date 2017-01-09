@@ -1,7 +1,7 @@
 //DirectiveList.js
 
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import axios from 'axios';
 import DirectiveDetail from './DirectiveDetail';
 
@@ -36,9 +36,9 @@ class DirectiveList extends Component {
       console.log(this.state);
 
       return (
-        <View>
+        <ScrollView>
           { this.renderDirectives() }
-        </View>
+        </ScrollView>
       );
     }
 }

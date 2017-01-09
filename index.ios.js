@@ -8,6 +8,7 @@ import {
   View
 } from 'react-native';
 import DirectiveList from './src/components/DirectiveList'
+import Button from './src/components/common/Button'
 
 export default class hunt extends Component {
 
@@ -25,7 +26,6 @@ export default class hunt extends Component {
     console.log('rendering something...')
     return (
       <View style={styles.container}>
-        <Button/>
         <Text style={styles.welcome}>
            Scavenger Hunt Capstone!
         </Text>
@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+    paddingTop: 100
   },
 });
 
