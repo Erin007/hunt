@@ -28,7 +28,7 @@ class DirectiveList extends Component {
         console.log('this.state.directives[0].name', this.state.directives[0].name)
 
         return this.state.directives.map(directive =>
-          <Text> { directive.name } </Text>);
+          <Text key={ directive.id } > { directive.name } </Text>);
       }
 
 
