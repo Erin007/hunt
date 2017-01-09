@@ -8,7 +8,7 @@ import Input from './common/Input';
 
 class LoginForm extends Component {
 
-  state = { text: ''}
+  state = { email: ''}
 
   render(){
     return (
@@ -16,8 +16,9 @@ class LoginForm extends Component {
         <CardSection>
           <Input
             label = "Email:"
-            value = {this.state.text}
-            onChangeText = {text => this.setState({ text })}/>
+            placeholder = "user@email.com"
+            value = {this.state.email}
+            onChangeText = {email => this.setState({ email })}/>
         </CardSection>
 
 
