@@ -2,16 +2,16 @@
 
 import React from 'react';
 import { View, Text } from 'react-native';
-import DirectiveCard from './DirectiveCard';
-import DirectiveCardSection from './DirectiveCardSection'
+import Card from '../common/Card';
+import CardSection from '../common/CardSection'
 
 const DirectiveDetail = (props) => {
   return (
-    <DirectiveCard>
-      <DirectiveCardSection>
+    <Card>
+      <CardSection>
         <Text>{ props.directive.name }</Text>
-      </DirectiveCardSection>
-    </DirectiveCard>
+      </CardSection>
+    </Card>
   )
 };
 

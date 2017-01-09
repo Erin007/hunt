@@ -1,10 +1,10 @@
-//DirectiveCardSection.js
+//CardSection.js
 
 import React from 'react';
 import { View } from 'react-native';
-import DirectiveCard from './DirectiveCard';
+import Card from './Card';
 
-const DirectiveCardSection = (props) => {
+const CardSection = (props) => {
   return (
   <View style={styles.containerStyle}>
     { props.children }
@@ -24,4 +24,4 @@ const styles = {
   }
 };
 
-export default DirectiveCardSection;
+export default CardSection;
