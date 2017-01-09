@@ -1,5 +1,5 @@
 //index.ios.js
-
+import firebase from 'firebase';
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -10,6 +10,17 @@ import {
 import DirectiveList from './src/components/DirectiveList'
 
 export default class hunt extends Component {
+  
+  componentWillMount(){
+    firebase.initializeApp({
+    apiKey: 'AIzaSyDZrPj54Bk9o1h47dwAijBTKZjBWYt3At0',
+    authDomain: 'hunt-cec80.firebaseapp.com',
+    databaseURL: 'https://hunt-cec80.firebaseio.com',
+    storageBucket: 'hunt-cec80.appspot.com',
+    messagingSenderId: '348722860624'
+    })
+  }
+
   render() {
     console.log('rendering something...')
     return (
