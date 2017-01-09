@@ -10,7 +10,7 @@ import {
 import DirectiveList from './src/components/DirectiveList'
 
 export default class hunt extends Component {
-  
+
   componentWillMount(){
     firebase.initializeApp({
     apiKey: 'AIzaSyDZrPj54Bk9o1h47dwAijBTKZjBWYt3At0',
@@ -25,6 +25,7 @@ export default class hunt extends Component {
     console.log('rendering something...')
     return (
       <View style={styles.container}>
+        <Button/>
         <Text style={styles.welcome}>
            Scavenger Hunt Capstone!
         </Text>
