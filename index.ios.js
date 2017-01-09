@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import DirectiveList from './src/components/DirectiveList'
 import Button from './src/components/common/Button'
+import LoginForm from './src/components/LoginForm'
 
 export default class hunt extends Component {
 
@@ -27,8 +28,9 @@ export default class hunt extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-           Scavenger Hunt Capstone!
+           Snapenger Hunt!
         </Text>
+        <LoginForm/>
         <DirectiveList/>
       </View>
     );
@@ -43,10 +45,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 45,
     textAlign: 'center',
     margin: 10,
-    paddingTop: 100
+    paddingTop: 10
   },
 });
 
