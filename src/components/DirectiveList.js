@@ -1,7 +1,7 @@
 //DirectiveList.js
 
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import axios from 'axios';
 import DirectiveDetail from './DirectiveDetail';
 
@@ -28,11 +28,8 @@ class DirectiveList extends Component {
         console.log('this.state.directives[0].name', this.state.directives[0].name)
 
         return this.state.directives.map(directive =>
-          <Text key={ directive.id } > { directive.name } </Text>);
+          <DirectiveDetail key={ directive.id } directive = {directive} />);
       }
-
-
-
     }
 
     render() {
