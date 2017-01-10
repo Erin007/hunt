@@ -22,7 +22,7 @@ class LoginForm extends Component {
       //if signin doesn't work
       .catch(() =>{
         //try to make an account for the user
-        firebase.auth().createUserWithEmailAndPassword(email,password)
+        firebase.auth().createUserWithEmailAndPassword(email, password)
           .then(this.onLoginSuccess.bind(this))
           .catch(this.onLoginFail.bind(this));
       });
@@ -39,6 +39,13 @@ class LoginForm extends Component {
       password: '',
       loading: false,
       error: ''
+    })
+
+    firebase.auth().currentUser.getToken(true).then(function(idToken) {
+      // Send token to backend via HTTPS
+
+    }).catch(function(error) {
+  // Handle error
     });
   }
 
