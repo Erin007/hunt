@@ -12,6 +12,8 @@ import Button from './src/components/common/Button'
 import LoginForm from './src/components/LoginForm'
 
 export default class hunt extends Component {
+  state = { loggedIn: false };
+
 
   componentWillMount(){
     firebase.initializeApp({
@@ -20,7 +22,37 @@ export default class hunt extends Component {
     databaseURL: 'https://hunt-cec80.firebaseio.com',
     storageBucket: 'hunt-cec80.appspot.com',
     messagingSenderId: '348722860624'
-    })
+    });
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      this.setState({ loggedIn: true });
+    } else {
+      this.setState({ loggedIn: false });
+    }
+  });
+}
+
+  renderContent(){
+    if (this.state.loggedIn) {
+      return (
+      <Card>
+        <CardSection>
+          <Button> Log Out </Button>
+        </CardSection>
+
+        <CardSection>
+          <Button> Make a New Hunt </Button>
+        </CardSection>
+
+        <CardSection>
+          <Button> Join a Hunt </Button>
+        </CardSection>
+      </Card>
+      )
+    }
+
+    return <LoginForm/>
   }
 
   render() {
@@ -30,8 +62,9 @@ export default class hunt extends Component {
         <Text style={styles.welcome}>
            Snapenger Hunt!
         </Text>
-        <LoginForm/>
-        <DirectiveList/>
+
+        {this.renderContent()}
+
       </View>
     );
   }
