@@ -24,6 +24,7 @@ class LoginForm extends Component {
         //try to make an account for the user
         firebase.auth().createUserWithEmailAndPassword(email, password)
           .then(this.onLoginSuccess.bind(this))
+          .then(this.verifyUserWithBackend.bind(this))
           .catch(this.onLoginFail.bind(this));
       });
 
@@ -34,18 +35,29 @@ class LoginForm extends Component {
   }
 
   onLoginSuccess() {
+    console.log('login was succesful!')
     this.setState({
       email: '',
       password: '',
       loading: false,
       error: ''
     })
+  }
 
+  verifyUserWithBackend() {
+    console.log('verifying user with backend function called')
     firebase.auth().currentUser.getToken(true).then(function(idToken) {
-      // Send token to backend via HTTPS
+    // Send token to backend via HTTPS
+
+    //if the user exists as a player or organizer in the backend, welcome them
+
+    //if the user doesn't exits as a player or organizer in the backend, ask them for a username
+
+    //save them as a player or organizer depending on which button(make hunt or play) they pick with their username and firebase uid
+
 
     }).catch(function(error) {
-  // Handle error
+    // Handle error
     });
   }
 
