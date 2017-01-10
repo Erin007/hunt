@@ -41,13 +41,15 @@ export default class hunt extends Component {
       case true:
         return (
         <View>
-            <Button> Log Out </Button>
+            <Button onPress={() => firebase.auth().signOut()}>
+              Log Out
+            </Button>
 
             <Button> Make a New Hunt </Button>
 
             <Button> Join a Hunt </Button>
         </View>
-        )
+      );
       //if the user is not logged in
       case false:
         return <LoginForm/>;
