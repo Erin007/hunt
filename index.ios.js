@@ -7,13 +7,15 @@ import {
   Text,
   View
 } from 'react-native';
-import DirectiveList from './src/components/DirectiveList'
-import Button from './src/components/common/Button'
-import LoginForm from './src/components/LoginForm'
+import DirectiveList from './src/components/DirectiveList';
+import Button from './src/components/common/Button';
+import LoginForm from './src/components/LoginForm';
+import Card from './src/components/common/Card';
+import CardSection from './src/components/common/CardSection';
+import Spinner from './src/components/common/Spinner';
 
 export default class hunt extends Component {
-  state = { loggedIn: false };
-
+  state = { loggedIn: null }; //are you logged in?
 
   componentWillMount(){
     firebase.initializeApp({
@@ -34,25 +36,25 @@ export default class hunt extends Component {
 }
 
   renderContent(){
-    if (this.state.loggedIn) {
-      return (
-      <Card>
-        <CardSection>
-          <Button> Log Out </Button>
-        </CardSection>
+    switch (this.state.loggedIn) {
+      //if the user is logged in
+      case true:
+        return (
+        <View>
+            <Button> Log Out </Button>
 
-        <CardSection>
-          <Button> Make a New Hunt </Button>
-        </CardSection>
+            <Button> Make a New Hunt </Button>
 
-        <CardSection>
-          <Button> Join a Hunt </Button>
-        </CardSection>
-      </Card>
-      )
+            <Button> Join a Hunt </Button>
+        </View>
+        )
+      //if the user is not logged in
+      case false:
+        return <LoginForm/>;
+      //if we don't know yet whether the user is logged in or not
+      default:
+        return <Spinner/>;
     }
-
-    return <LoginForm/>
   }
 
   render() {

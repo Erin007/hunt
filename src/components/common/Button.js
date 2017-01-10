@@ -22,7 +22,8 @@ const styles = {
     fontSize: 16,
     fontWeight: '600',
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 10,
+    margin: 10
   },
   buttonStyle:{
   // flex: 1,
@@ -31,6 +32,7 @@ const styles = {
     borderRadius: 5,
     borderWidth: 5,
     borderColor: '#21b6cb',
+    margin: 10, 
   }
 };
 
