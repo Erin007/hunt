@@ -49,5 +49,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>Snapenger Hunt would like to access your camera.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Snapenger Hunt would llike to access your photos.</string>
 </dict>
 </plist>

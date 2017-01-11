@@ -5,18 +5,24 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  CameraRoll,
+  Image,
+  ScrollView
 } from 'react-native';
 
 import DirectiveList from './src/components/DirectiveList';
 import Button from './src/components/common/Button';
 import LoginForm from './src/components/LoginForm';
+import Example from './src/components/Camera';
 import Card from './src/components/common/Card';
 import CardSection from './src/components/common/CardSection';
 import Spinner from './src/components/common/Spinner';
 
 export default class hunt extends Component {
-  state = { loggedIn: null }; //are you logged in?
+  state = { loggedIn: null, images: [] }; //are you logged in?
+
+  const reactImageProject = React.createClass({
 
   componentWillMount(){
     firebase.initializeApp({
@@ -27,14 +33,33 @@ export default class hunt extends Component {
     messagingSenderId: '348722860624'
     });
 
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      this.setState({ loggedIn: true });
-    } else {
-      this.setState({ loggedIn: false });
-    }
-  });
-}
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ loggedIn: true });
+      } else {
+        this.setState({ loggedIn: false });
+      }
+    });
+  }
+
+  componentDidMount() {
+    const fetchParams = {
+      first: 25,
+    };
+    CameraRoll.getPhotos(fetchParams, this.storeImages, this.logImageError);
+  },
+
+  storeImages(data) {
+    const assets = data.edges;
+    const images = assets.map((asset) => asset.node.image);
+    this.setState({
+      images: images,
+    });
+  },
+
+  logImageError(err) {
+    console.log(err);
+  },
 
   renderContent(){
     switch (this.state.loggedIn) {
@@ -70,6 +95,12 @@ export default class hunt extends Component {
 
         {this.renderContent()}
 
+        <ScrollView style={styles.imageContainer}>
+        <View style={styles.imageGrid}>
+          { this.state.images.map((image) => <Image style={styles.image} source={{ uri: image.uri }} />) }
+        </View>
+      </ScrollView>
+
       </View>
 
     );
@@ -88,6 +119,21 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
     paddingTop: 10
+  },
+  imageContainer: {
+    flex: 1,
+    backgroundColor: '#F5FCFF',
+  },
+  imageGrid: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center'
+  },
+  image: {
+    width: 100,
+    height: 100,
+    margin: 10,
   },
 });
 
