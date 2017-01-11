@@ -14,6 +14,7 @@ import LoginForm from './src/components/LoginForm';
 import Card from './src/components/common/Card';
 import CardSection from './src/components/common/CardSection';
 import Spinner from './src/components/common/Spinner';
+import Camera from './src/components/Camera';
 
 export default class hunt extends Component {
   state = { loggedIn: null }; //are you logged in?
@@ -69,6 +70,8 @@ export default class hunt extends Component {
         </Text>
 
         {this.renderContent()}
+
+        <Camera/>
 
       </View>
 
