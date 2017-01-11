@@ -14,15 +14,12 @@ import {
 import DirectiveList from './src/components/DirectiveList';
 import Button from './src/components/common/Button';
 import LoginForm from './src/components/LoginForm';
-import Example from './src/components/Camera';
 import Card from './src/components/common/Card';
 import CardSection from './src/components/common/CardSection';
 import Spinner from './src/components/common/Spinner';
 
 export default class hunt extends Component {
   state = { loggedIn: null, images: [] }; //are you logged in?
-
-  const reactImageProject = React.createClass({
 
   componentWillMount(){
     firebase.initializeApp({
@@ -47,7 +44,7 @@ export default class hunt extends Component {
       first: 25,
     };
     CameraRoll.getPhotos(fetchParams, this.storeImages, this.logImageError);
-  },
+  }
 
   storeImages(data) {
     const assets = data.edges;
@@ -55,11 +52,11 @@ export default class hunt extends Component {
     this.setState({
       images: images,
     });
-  },
+  }
 
   logImageError(err) {
     console.log(err);
-  },
+  }
 
   renderContent(){
     switch (this.state.loggedIn) {
