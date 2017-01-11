@@ -7,6 +7,7 @@ import {
   Text,
   View
 } from 'react-native';
+
 import DirectiveList from './src/components/DirectiveList';
 import Button from './src/components/common/Button';
 import LoginForm from './src/components/LoginForm';
@@ -70,6 +71,7 @@ export default class hunt extends Component {
         {this.renderContent()}
 
       </View>
+
     );
   }
 }
