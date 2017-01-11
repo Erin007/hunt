@@ -52,6 +52,7 @@ class LoginForm extends Component {
     //if the user exists as a player or organizer in the backend, welcome them
 
     //if the user doesn't exits as a player or organizer in the backend, ask them for a username
+    
 
     //save them as a player or organizer depending on which button(make hunt or play) they pick with their username and firebase uid
 
